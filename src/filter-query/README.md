@@ -18,6 +18,7 @@ Simplify the definition of complex nested query:
 Let's create an `BookFilterQueryDto` used to search books:
 
 ```typescript
+// ./dto/book-filter-query.dto.ts
 import { Page, PageQuery, Pagination } from "@buka/nestjs-type-helper";
 import { IsInt, IsString } from 'class-validator'
 import { ToNumber } from '@buka/class-transformer-extra'
@@ -83,6 +84,7 @@ interface BookFilterQueryDto {
 And it could be used in [`mikroORM`](https://mikro-orm.io/) without additional processing.
 
 ```typescript
+// app.controller.ts
 class AppController {
   constructor(
     private readonly orm: MikroORM,
@@ -113,16 +115,6 @@ const filter = {
   <summary>More Example</summary>
 
 `?author[$in][]=Jake&author[$in][]=Larry`:
-
-```typescript
-const filter = {
-  author: {
-    $in: ["Jake", "Larry"],
-  },
-};
-```
-
-`?auth[$eq]=Jake`:
 
 ```typescript
 const filter = {

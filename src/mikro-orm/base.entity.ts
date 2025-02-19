@@ -1,13 +1,13 @@
-import { OptionalProps, PrimaryKey } from '@mikro-orm/core'
+import { Config, DefineConfig, OptionalProps, PrimaryKey, PrimaryKeyProp } from '@mikro-orm/core'
 // import { ApiProperty } from '@nestjs/swagger'
 import { EntityProperty } from './entity-property.decorator.js'
 
 
 export abstract class BaseEntity<Optional = never> {
-  // [PrimaryKeyProp]?: 'id'
+  [Config]?: DefineConfig<{ forceObject: true }>;
+  [PrimaryKeyProp]?: 'id'
   [OptionalProps]?: 'createdAt' | 'updatedAt' | Optional
 
-  // @ApiProperty({ description: '主键' })
   @PrimaryKey({
     type: 'bigint',
     comment: '主键',

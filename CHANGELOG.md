@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.2](https://github.com/buka-inc/npm.nestjs-type-helper/compare/v1.0.1...v1.0.2) (2025-02-21)
+
+
+### Bug Fixes
+
+* primary key type is wrong and missing swagger decorator ([23c008f](https://github.com/buka-inc/npm.nestjs-type-helper/commit/23c008f07585899337bbba7e86f227f87f641a77))
+
+
+### Performance Improvements
+
+* add forceObject config to BaseEntity ([0427e15](https://github.com/buka-inc/npm.nestjs-type-helper/commit/0427e150dcf9b51cdacf199c9d911eca2b3f7728))
+
 ## [1.0.1](https://github.com/buka-inc/npm.nestjs-type-helper/compare/v1.0.0...v1.0.1) (2025-02-18)
 
 

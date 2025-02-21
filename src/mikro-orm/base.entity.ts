@@ -1,6 +1,8 @@
-import { Config, DefineConfig, OptionalProps, PrimaryKey, PrimaryKeyProp } from '@mikro-orm/core'
+import { BigIntType, Config, DefineConfig, OptionalProps, PrimaryKey, PrimaryKeyProp } from '@mikro-orm/core'
 // import { ApiProperty } from '@nestjs/swagger'
 import { EntityProperty } from './entity-property.decorator.js'
+import { ApiProperty } from '@nestjs/swagger'
+import { IsNumberString } from 'class-validator'
 
 
 export abstract class BaseEntity<Optional = never> {
@@ -8,10 +10,17 @@ export abstract class BaseEntity<Optional = never> {
   [PrimaryKeyProp]?: 'id'
   [OptionalProps]?: 'createdAt' | 'updatedAt' | Optional
 
+  @ApiProperty({
+    type: 'string',
+    description: 'PK',
+    example: '1',
+    required: true,
+  })
   @PrimaryKey({
-    type: 'bigint',
+    type: new BigIntType('string'),
     comment: '主键',
   })
+  @IsNumberString()
   id!: string
 
   @EntityProperty({

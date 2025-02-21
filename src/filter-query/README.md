@@ -80,7 +80,7 @@ interface BookFilterQueryDto {
 
 </details>
 
-`QueryType` is friendly to `@nestjs/swagger`, `class-validator` and `class-transformer`.
+`FilterQuery` is friendly to `@nestjs/swagger`, `class-validator` and `class-transformer`.
 And it could be used in [`mikroORM`](https://mikro-orm.io/) without additional processing.
 
 ```typescript

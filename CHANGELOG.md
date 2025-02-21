@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/buka-inc/npm.nestjs-type-helper/compare/v1.0.2...v1.1.0) (2025-02-21)
+
+
+### Features
+
+* add OrderQuery decorator ([6e9917f](https://github.com/buka-inc/npm.nestjs-type-helper/commit/6e9917f1838edf0d11573f95c9336eb7ecbec557))
+
 ## [1.0.2](https://github.com/buka-inc/npm.nestjs-type-helper/compare/v1.0.1...v1.0.2) (2025-02-21)
 
 

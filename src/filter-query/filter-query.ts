@@ -12,14 +12,14 @@ import { getTypeMetadata } from '~/utils/type-decorator-utils'
 import { getApiProperties } from '~/utils/api-property-decortor-utils'
 
 
-type QueryOperator = '$lt' | '$gt' | '$lte' | '$gte' | '$eq' | '$ne' | '$in' | '$nin'
+type IQueryOperator = '$lt' | '$gt' | '$lte' | '$gte' | '$eq' | '$ne' | '$in' | '$nin'
 
-type QueryProperty<T, K extends QueryOperator = QueryOperator> = {
+type IQueryProperty<T, K extends IQueryOperator = IQueryOperator> = {
   [key in K]?: key extends '$in' | '$nin' ? T[] : T
 }
 
-type Query<T> = {
-  [K in keyof T]: T[K] extends object ? Query<T[K]> : QueryProperty<Exclude<T[K], undefined>>
+type IFilterQuery<T> = {
+  [K in keyof T]: T[K] extends object ? IFilterQuery<T[K]> : IQueryProperty<Exclude<T[K], undefined>>
 }
 
 
@@ -89,8 +89,8 @@ function buildClass(targetRef: Type<any>, parentRef: Type<any>, prefix = ''): vo
   }
 }
 
-export function FilterQuery<T>(classRef: Type<T>): Type<Query<T>> {
-  abstract class QueryTypeClass {}
-  buildClass(QueryTypeClass as any, classRef)
-  return QueryTypeClass as Type<Query<T>>
+export function FilterQuery<T>(classRef: Type<T>): Type<IFilterQuery<T>> {
+  abstract class FilterQueryClass {}
+  buildClass(FilterQueryClass as any, classRef)
+  return FilterQueryClass as Type<IFilterQuery<T>>
 }

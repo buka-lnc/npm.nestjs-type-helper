@@ -85,6 +85,7 @@ And it could be used in [`mikroORM`](https://mikro-orm.io/) without additional p
 
 ```typescript
 // app.controller.ts
+@Controller()
 class AppController {
   constructor(
     private readonly orm: MikroORM,
